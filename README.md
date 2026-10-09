@@ -29,7 +29,9 @@ feature/my-change  ──PR──▶  main  ──▶  live site
 | Invited talks | `_data/talks.yml` |
 | Open positions, teaching, outreach, TÜBİTAK project | `positions.md`, `teaching.md`, `outreach.md`, `tubitak-1001.md` |
 | Menu items | `_data/navigation.yml` |
-| Colours, fonts, spacing | the settings at the top of `assets/css/main.css` |
+| Which style is used | `style:` in `_config.yml` (`modern` or `classic`) |
+| Colours, fonts, spacing | the settings at the top of `assets/css/modern.css` or `assets/css/classic.css` |
+| Research topics on the home page | `_data/topics.yml` |
 | Page frame (header, footer) | `_layouts/` and `_includes/` |
 
 ### Adding a publication

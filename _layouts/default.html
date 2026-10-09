@@ -13,6 +13,7 @@
     {{ content }}
   </main>
   {% include footer.html %}
+  {% if site.preview or jekyll.environment == "development" %}{% include style-switcher.html %}{% endif %}
   <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
 </body>
 </html>

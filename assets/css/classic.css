@@ -1,5 +1,6 @@
 /* ==========================================================================
-   Design settings. Change these to restyle the whole site.
+   Classic style: serif headings, warm paper background, single column.
+   Change these settings to restyle.
    ========================================================================== */
 :root {
   --color-bg: #fbfaf7;
@@ -91,9 +92,10 @@ img { max-width: 100%; height: auto; }
    ========================================================================== */
 .site-header { border-bottom: 1px solid var(--color-border); background: var(--color-surface); }
 .header-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; padding-top: .9rem; padding-bottom: .9rem; }
-.site-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 600; color: var(--color-text); text-decoration: none; }
+.brand { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 600; color: var(--color-text); text-decoration: none; }
+.brand-mark, .header-search { display: none; }
 
-.site-nav { flex-basis: 100%; }
+.site-nav { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: .25rem; }
 .site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .25rem .25rem; }
 .site-nav a {
   display: block; padding: .3rem .6rem; border-radius: var(--radius);
@@ -111,13 +113,14 @@ img { max-width: 100%; height: auto; }
   .js .nav-toggle { display: block; }
   .js .site-nav { display: none; }
   .js .site-nav.open { display: block; }
+  .site-nav { flex-direction: column; }
   .site-nav ul { flex-direction: column; }
 }
 
 /* ==========================================================================
    Page content
    ========================================================================== */
-main { padding-top: 2rem; padding-bottom: 3rem; }
+main.container { padding-top: 2rem; padding-bottom: 3rem; }
 .page-header { margin-bottom: 1.5rem; }
 .prose > :first-child { margin-top: 0; }
 
@@ -134,7 +137,29 @@ td:first-child { white-space: nowrap; color: var(--color-muted); }
 
 ul.columns { columns: 2 18rem; padding-left: 1.2rem; }
 
-/* Profile (home page) */
+/* Home */
+.home-grid { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 2.5rem; align-items: start; }
+@media (max-width: 52rem) { .home-grid { grid-template-columns: 1fr; } }
+.hero { margin: 0 0 1.5rem; }
+.hero img { border-radius: var(--radius); }
+.hero-art { display: none; }
+.home-lead { font-size: 1.15rem; margin: 0 0 .25rem; }
+.home-main .prose { margin-top: 1.5rem; }
+
+.home-side { display: flex; flex-direction: column; gap: 1.25rem; font-size: .95rem; }
+.card { border-top: 2px solid var(--color-primary); padding-top: .75rem; }
+.card h2 { font-size: 1.05rem; margin: 0 0 .5rem; padding: 0; border: 0; }
+.card p { margin: 0 0 .75rem; }
+.eyebrow { font-family: var(--font-heading); }
+.button { display: inline-block; padding: .4rem .9rem; border-radius: var(--radius); background: var(--color-primary); color: var(--color-bg); text-decoration: none; font-weight: 600; }
+.button:hover { color: var(--color-bg); opacity: .9; }
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .35rem; }
+.chips a { display: inline-block; padding: .1rem .55rem; border-radius: 999px; background: var(--color-primary-soft); text-decoration: none; font-size: .875rem; }
+.mini-pubs { list-style: none; margin: 0 0 .5rem; padding: 0; }
+.mini-pubs li { padding: .35rem 0; display: flex; flex-direction: column; line-height: 1.35; }
+.more-link { font-size: .9rem; }
+
+/* Profile (older home layout) */
 .profile { display: flex; gap: 1.75rem; align-items: center; margin-bottom: 2rem; }
 .profile-photo img, .profile-photo .initials {
   width: 160px; height: 160px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
@@ -222,3 +247,11 @@ ul.columns { columns: 2 18rem; padding-left: 1.2rem; }
 .site-footer { border-top: 1px solid var(--color-border); background: var(--color-surface); font-size: .95rem; }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; padding-top: 1.5rem; padding-bottom: 1.5rem; }
 .footer-inner p { margin: 0 0 .5rem; }
+
+/* Style switcher (local and preview builds only) */
+.style-switcher {
+  position: fixed; right: 1rem; bottom: 1rem; z-index: 30; display: flex; align-items: center; gap: .5rem;
+  padding: .4rem .7rem; background: var(--color-surface); color: var(--color-text);
+  border: 1px solid var(--color-border); border-radius: var(--radius); font-size: .85rem;
+}
+.style-switcher select { font: inherit; }

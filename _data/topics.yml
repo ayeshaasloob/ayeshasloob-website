@@ -1,0 +1,18 @@
+# Research topics shown on the home page. Each links to the publications page
+# filtered by "query", which is matched against titles, co-authors and journals.
+- label: Polyominoes
+  query: polyomino
+- label: Edge ideals
+  query: edge ideal
+- label: Squarefree powers
+  query: squarefree powers
+- label: Powers of ideals
+  query: powers
+- label: Gröbner bases
+  query: gröbner
+- label: Polymatroids
+  query: polymatroid
+- label: Hypergraphs
+  query: hypergraph
+- label: Componentwise linearity
+  query: componentwise

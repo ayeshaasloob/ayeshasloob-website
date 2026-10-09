@@ -1,18 +1,28 @@
+# group: primary (top row) or secondary (second row in the Modern style)
 - title: Bio
   url: /
+  group: primary
 - title: Publications
   url: /publications/
+  group: primary
 - title: Group
   url: /group/
-- title: Open positions
-  url: /positions/
-- title: Grants & awards
-  url: /grants/
+  group: primary
 - title: Talks
   url: /talks/
-- title: TÜBİTAK 1001
-  url: /tubitak-1001/
+  group: primary
 - title: Teaching
   url: /teaching/
+  group: primary
+- title: Open positions
+  url: /positions/
+  group: secondary
+- title: Grants & awards
+  url: /grants/
+  group: secondary
+- title: TÜBİTAK 1001
+  url: /tubitak-1001/
+  group: secondary
 - title: Outreach
   url: /outreach/
+  group: secondary

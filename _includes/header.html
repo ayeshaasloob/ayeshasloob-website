@@ -1,15 +1,27 @@
+{% assign primary = site.data.navigation | where: "group", "primary" %}
+{% assign secondary = site.data.navigation | where: "group", "secondary" %}
 <header class="site-header">
   <div class="container header-inner">
-    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="brand-mark" aria-hidden="true">AQ</span>
+      <span class="brand-name">{{ site.title }}</span>
+    </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="site-nav" aria-label="Main">
-      <ul>
-        {% for item in site.data.navigation %}
-          {% assign current = false %}
-          {% if page.url == item.url %}{% assign current = true %}{% endif %}
-          <li><a href="{{ item.url | relative_url }}"{% if current %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+      <ul class="nav-primary">
+        {% for item in primary %}
+        <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+      <ul class="nav-secondary">
+        {% for item in secondary %}
+        <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
         {% endfor %}
       </ul>
     </nav>
+    <a class="header-search" href="{{ '/publications/#pub-search' | relative_url }}">
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      Search papers
+    </a>
   </div>
 </header>

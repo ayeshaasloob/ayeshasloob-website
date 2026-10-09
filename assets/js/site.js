@@ -1,6 +1,25 @@
 // Small enhancements. The site works without JavaScript; this adds the mobile menu,
-// clickable email links, and publication filtering and BibTeX copying.
+// clickable email links, publication filtering and BibTeX copying, and the style switcher
+// shown in local and preview builds.
 (function () {
+  // Style switcher (local and preview builds only)
+  var switcher = document.querySelector('.style-switcher');
+  if (switcher) {
+    var select = switcher.querySelector('select');
+    var link = document.getElementById('theme-css');
+    var setStyle = function (name) {
+      link.href = switcher.dataset.base + name + '.css';
+      select.value = name;
+    };
+    var saved = null;
+    try { saved = localStorage.getItem('style'); } catch (e) { /* storage unavailable */ }
+    if (saved) setStyle(saved); else select.value = link.href.split('/').pop().replace('.css', '');
+    select.addEventListener('change', function () {
+      setStyle(select.value);
+      try { localStorage.setItem('style', select.value); } catch (e) { /* storage unavailable */ }
+    });
+  }
+
   // Mobile menu
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('site-nav');
@@ -79,4 +98,11 @@
     });
   });
   search.addEventListener('input', apply);
+
+  // Links such as /publications/?q=polyomino open with the search filled in.
+  var q = new URLSearchParams(window.location.search).get('q');
+  if (q) {
+    search.value = q;
+    apply();
+  }
 })();

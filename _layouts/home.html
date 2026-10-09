@@ -2,25 +2,86 @@
 layout: default
 ---
 {% assign p = site.data.profile %}
-<section class="profile">
-  <div class="profile-photo">
-    {% if p.photo and p.photo != "" %}
-      <img src="{{ p.photo | relative_url }}" alt="Portrait of {{ p.name }}" width="180" height="180">
-    {% else %}
-      <span class="initials" aria-hidden="true">AQ</span>
-    {% endif %}
-  </div>
-  <div class="profile-text">
-    <h1>{{ p.name }}</h1>
-    <p class="role">{{ p.role }}<br><a href="{{ p.affiliation_url }}">{{ p.affiliation }}</a>, {{ p.location }}</p>
-    {% if p.official_name %}<p class="muted small">Official name: {{ p.official_name }}</p>{% endif %}
-    <p class="contact-line">{% include email.html email=p.email %}</p>
-    {% include profile-links.html %}
-  </div>
-</section>
+{% assign latest = site.data.publications | where: "status", "published" %}
+<div class="home-grid">
+  <div class="home-main">
+    <figure class="hero">
+      {% if p.photo and p.photo != "" %}
+        <img src="{{ p.photo | relative_url }}" alt="Portrait of {{ p.name }}" width="1200" height="675">
+      {% else %}
+        {% comment %} Placeholder until a photo is added: a polyomino, one of the objects in Ayesha's research. {% endcomment %}
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M40 0H0V40" fill="none" stroke="currentColor" stroke-opacity=".12" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="640" height="360" fill="url(#grid)"/>
+            <g transform="translate(80 -40)">
+            <g class="cells" stroke-width="2">
+              <rect x="360" y="80" width="40" height="40"/><rect x="400" y="80" width="40" height="40"/><rect x="440" y="80" width="40" height="40"/>
+              <rect x="360" y="120" width="40" height="40"/><rect x="440" y="120" width="40" height="40"/><rect x="480" y="120" width="40" height="40"/>
+              <rect x="360" y="160" width="40" height="40"/><rect x="400" y="160" width="40" height="40"/><rect x="480" y="160" width="40" height="40"/>
+              <rect x="400" y="200" width="40" height="40"/><rect x="440" y="200" width="40" height="40"/><rect x="480" y="200" width="40" height="40"/>
+              <rect x="440" y="240" width="40" height="40"/>
+            </g>
+            <g class="cells-accent" stroke-width="2">
+              <rect x="400" y="120" width="40" height="40"/><rect x="440" y="160" width="40" height="40"/>
+            </g>
+            </g>
+          </svg>
+          <div class="hero-caption">
+            <span class="eyebrow">Commutative algebra · Combinatorics · Algebraic statistics</span>
+          </div>
+        </div>
+      {% endif %}
+    </figure>
 
-<div class="prose">
-  {{ content }}
+    <h1 class="home-title">{{ p.name }}</h1>
+    <p class="home-lead">{{ p.role }} at <a href="{{ p.affiliation_url }}">{{ p.affiliation }}</a>, {{ p.location }}.</p>
+    {% if p.official_name %}<p class="muted small">Official name: {{ p.official_name }}</p>{% endif %}
+
+    <div class="prose">
+      {{ content }}
+    </div>
+  </div>
+
+  <aside class="home-side" aria-label="Highlights">
+    <section class="card card-feature">
+      <h2>Join the group</h2>
+      <p>Postdoc, PhD and MS positions are open within the TÜBİTAK 1001 project. A good background in algebra and commutative algebra is expected.</p>
+      <a class="button" href="{{ '/positions/' | relative_url }}">See open positions</a>
+    </section>
+
+    <section class="card card-links">
+      <h2 class="eyebrow">Find me</h2>
+      <p class="contact-line">{% include email.html email=p.email %}</p>
+      {% include profile-links.html %}
+    </section>
+
+    <section class="card">
+      <h2 class="eyebrow">Research topics</h2>
+      <ul class="chips">
+        {% for t in site.data.topics %}
+        <li><a href="{{ '/publications/' | relative_url }}?q={{ t.query | url_encode }}">{{ t.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2 class="eyebrow">Latest papers</h2>
+      <ul class="mini-pubs">
+        {% for pub in latest limit: 3 %}
+        <li>
+          <a href="{% if pub.doi %}https://doi.org/{{ pub.doi }}{% else %}{{ '/publications/' | relative_url }}{% endif %}">{{ pub.title }}</a>
+          <span class="muted small">{{ pub.journal }}, {{ pub.year }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      <a class="more-link" href="{{ '/publications/' | relative_url }}">All publications →</a>
+    </section>
+  </aside>
 </div>
 
 <script type="application/ld+json">
