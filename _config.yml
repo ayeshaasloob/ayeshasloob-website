@@ -4,8 +4,8 @@ description: >-
   Associate Professor of Mathematics at Sabancı Üniversitesi, Istanbul.
   Research in commutative algebra, combinatorics and algebraic statistics.
 lang: en
-url: "https://ayeshaasloob.github.io"
-baseurl: "/ayeshasloob-website"
+url: "https://ayeshaasloob.com"
+baseurl: ""
 
 # Visual style: modern, classic, grid, journal or tiling (see _data/styles.yml).
 style: classic

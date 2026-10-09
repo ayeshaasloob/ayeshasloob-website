@@ -2,7 +2,7 @@
 
 Personal academic website, built with [Jekyll](https://jekyllrb.com/) and published with GitHub Pages.
 
-Live site: https://ayeshaasloob.github.io/ayeshasloob-website/
+Live site: https://ayeshaasloob.com/
 
 ## How changes go live
 
@@ -104,7 +104,7 @@ With Ruby 3.1 or later:
 ```sh
 bundle install
 bundle exec jekyll serve
-# open http://localhost:4000/ayeshasloob-website/
+# open http://localhost:4000/
 ```
 
 The Ruby that ships with macOS is too old. If you do not want to install a newer one, use Docker:
@@ -118,7 +118,7 @@ To run the same link check as CI:
 
 ```sh
 bundle exec jekyll build
-bundle exec htmlproofer ./_site --disable-external --no-enforce-https --swap-urls "^/ayeshasloob-website:"
+bundle exec htmlproofer ./_site --disable-external --no-enforce-https --swap-urls "^:"
 ```
 
 ## One-off GitHub setup
@@ -132,4 +132,4 @@ Notes:
 
 - Previews are public URLs, as GitHub Pages sites cannot be made private on standard plans. Do not put anything confidential in a PR.
 - Pull requests from forks cannot publish previews, because they do not get write access to the repository.
-- If a custom domain is added later, set `url` and `baseurl: ""` in `_config.yml` and add a `CNAME` file.
+- The custom domain is declared in `CNAME`; DNS for `ayeshaasloob.com` points to GitHub Pages.
