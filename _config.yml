@@ -7,7 +7,7 @@ lang: en
 url: "https://ayeshaasloob.github.io"
 baseurl: "/ayeshasloob-website"
 
-# Visual style: "modern" or "classic". Each is a stylesheet in assets/css/.
+# Visual style: modern, classic, grid, journal or tiling (see _data/styles.yml).
 style: modern
 
 # Set to true by the PR preview build: shows a banner and stops search engines indexing.

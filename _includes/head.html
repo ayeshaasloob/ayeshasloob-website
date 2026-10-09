@@ -8,11 +8,8 @@
 <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-{% if style == "modern" or show_switcher %}
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
-{% endif %}
-{% if style == "classic" or show_switcher %}
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;600&display=swap">
-{% endif %}
+{% for st in site.data.styles %}{% if st.name == style or show_switcher %}
+<link rel="stylesheet" href="{{ st.fonts }}">
+{% endif %}{% endfor %}
 <link id="theme-css" rel="stylesheet" href="{{ '/assets/css/' | append: style | append: '.css' | relative_url }}">
 <script>document.documentElement.classList.add('js');</script>

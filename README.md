@@ -29,8 +29,9 @@ feature/my-change  ──PR──▶  main  ──▶  live site
 | Invited talks | `_data/talks.yml` |
 | Open positions, teaching, outreach, TÜBİTAK project | `positions.md`, `teaching.md`, `outreach.md`, `tubitak-1001.md` |
 | Menu items | `_data/navigation.yml` |
-| Which style is used | `style:` in `_config.yml` (`modern` or `classic`) |
-| Colours, fonts, spacing | the settings at the top of `assets/css/modern.css` or `assets/css/classic.css` |
+| Which style is used | `style:` in `_config.yml`; the options are listed in `_data/styles.yml` |
+| Colours, fonts, spacing | the settings at the top of that style's file in `assets/css/` |
+| Animated polyomino background | `assets/js/polyomino-bg.js`; each style turns it on or off with the `.poly-bg` rule in its CSS |
 | Research topics on the home page | `_data/topics.yml` |
 | Page frame (header, footer) | `_layouts/` and `_includes/` |
 
@@ -56,6 +57,22 @@ When a preprint is published, change `status` to `published` and add the journal
 ### Adding a photo
 
 Put the image at `assets/img/profile.jpg` (square, about 400×400 px) and set `photo: "/assets/img/profile.jpg"` in `_data/profile.yml`.
+
+## Styles
+
+| Style | Look |
+|---|---|
+| `modern` | Light grey page, white two-row header, dark feature box, animated polyomino background |
+| `classic` | Serif headings on warm paper, single row menu, animated polyomino background |
+| `grid` | Graph paper with square ink outlines; a blueprint in dark mode |
+| `journal` | Set like a maths paper: centred title, numbered sections, numbered reference list |
+| `tiling` | Bold colour blocks with heavy outlines and offset shadows |
+
+In local and PR preview builds a **Style** menu in the bottom-right corner switches between them instantly.
+It never appears on the live site. Once a style is chosen, the other stylesheets can be deleted.
+
+The background animation respects the visitor's "reduce motion" setting (it then shows a still frame)
+and pauses when the tab is hidden. To change its strength, edit `--poly-opacity` in the style's CSS.
 
 ## Running locally
 

@@ -2,7 +2,6 @@
 <div class="style-switcher" data-base="{{ '/assets/css/' | relative_url }}">
   <label for="style-select">Style</label>
   <select id="style-select">
-    <option value="modern">Modern</option>
-    <option value="classic">Classic</option>
+    {% for st in site.data.styles %}<option value="{{ st.name }}">{{ st.label }}</option>{% endfor %}
   </select>
 </div>

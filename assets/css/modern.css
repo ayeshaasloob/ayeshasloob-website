@@ -28,6 +28,7 @@
   --gutter: 1rem;
   --radius: 4px;
   --shadow: 0 1px 2px rgb(16 24 40 / .04), 0 4px 16px rgb(16 24 40 / .06);
+  --poly-opacity: .11;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -48,6 +49,7 @@
     --color-banner-bg: #3a2f10;
     --color-banner-text: #f5dc9a;
     --shadow: none;
+    --poly-opacity: .16;
   }
 }
 
@@ -89,6 +91,14 @@ img { max-width: 100%; height: auto; display: block; }
 .skip-link { position: absolute; left: -999px; top: 0; background: var(--color-surface); padding: .5rem 1rem; z-index: 20; }
 .skip-link:focus { left: 1rem; }
 .preview-banner { background: var(--color-banner-bg); color: var(--color-banner-text); text-align: center; padding: .4rem var(--gutter); font-weight: 600; font-size: .875rem; }
+
+
+/* Animated polyomino background (assets/js/polyomino-bg.js).
+   color = piece outline, --poly-accent = filled cell, opacity = overall strength. */
+.poly-bg {
+  position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; display: block;
+  color: var(--color-link); --poly-accent: var(--color-accent); opacity: var(--poly-opacity);
+}
 
 /* ==========================================================================
    Header: brand + primary nav + search, secondary nav on a second row
