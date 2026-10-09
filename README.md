@@ -31,7 +31,7 @@ feature/my-change  ──PR──▶  main  ──▶  live site
 | Menu items | `_data/navigation.yml` |
 | Which style is used | `style:` in `_config.yml`; the options are listed in `_data/styles.yml` |
 | Colours, fonts, spacing | the settings at the top of that style's file in `assets/css/` |
-| Animated polyomino background | `assets/js/polyomino-bg.js`; each style turns it on or off with the `.poly-bg` rule in its CSS |
+| Animated background | `background:` in `_config.yml` (`polyominoes`, `edge-ideals` or `none`); drawn by `assets/js/background.js`; each style turns it on or off with the `.bg-anim` rule in its CSS |
 | Research topics on the home page | `_data/topics.yml` |
 | Page frame (header, footer) | `_layouts/` and `_includes/` |
 
@@ -68,11 +68,33 @@ Put the image at `assets/img/profile.jpg` (square, about 400×400 px) and set `p
 | `journal` | Set like a maths paper: centred title, numbered sections, numbered reference list |
 | `tiling` | Bold colour blocks with heavy outlines and offset shadows |
 
+### Choosing the style for the live site
+
+The deploy uses the first of these that is set:
+
+1. **One-off:** Actions → *Deploy site* → *Run workflow*, and pick a style from the list.
+2. **Default for every deploy:** a repository variable `SITE_STYLE` (Settings → Secrets and variables → Actions → Variables), for example `journal`. PR previews also open in this style.
+3. **Fallback:** `style:` in `_config.yml`.
+
+The background animation works the same way: the *Run workflow* list, then a repository variable `SITE_BACKGROUND`
+(`polyominoes`, `edge-ideals` or `none`), then `background:` in `_config.yml`.
+
+If a value is not recognised, the deploy stops with an error and the live site is left unchanged.
+The chosen style and background are shown in the summary of each deploy run.
+
 In local and PR preview builds a **Style** menu in the bottom-right corner switches between them instantly.
 It never appears on the live site. Once a style is chosen, the other stylesheets can be deleted.
 
-The background animation respects the visitor's "reduce motion" setting (it then shows a still frame)
-and pauses when the tab is hidden. To change its strength, edit `--poly-opacity` in the style's CSS.
+Modern and Classic have an animated background, chosen with `background:` in `_config.yml`:
+
+- `polyominoes`: faint polyomino pieces drifting upwards.
+- `edge-ideals`: a slowly moving graph on vertices x₁, x₂, … When two vertices come close an edge forms,
+  and its monomial (for example x₃x₇, a generator of the graph's edge ideal) appears briefly beside it.
+- `none`: no animation.
+
+The local and preview **Background** menu switches between them. The animation respects the visitor's
+"reduce motion" setting (it then shows a still frame) and pauses when the tab is hidden.
+To change its strength, edit `--bg-opacity` in the style's CSS.
 
 ## Running locally
 

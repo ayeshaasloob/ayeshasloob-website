@@ -33,10 +33,15 @@ jobs:
           BASEURL=$(ruby -ryaml -e 'puts YAML.load_file("_config.yml")["baseurl"]')
           PREVIEW_BASEURL="${BASEURL}/pr-preview/pr-${{ github.event.number }}"
           printf 'preview: true\nbaseurl: "%s"\n' "$PREVIEW_BASEURL" > _config.preview.yml
+          # Open the preview in the same style the live site uses; the Style menu can switch it.
+          if [ -n "$VAR_STYLE" ]; then printf 'style: %s\n' "$VAR_STYLE" >> _config.preview.yml; fi
+          if [ -n "$VAR_BACKGROUND" ]; then printf 'background: %s\n' "$VAR_BACKGROUND" >> _config.preview.yml; fi
           bundle exec jekyll build --config _config.yml,_config.preview.yml
           echo "PREVIEW_BASEURL=$PREVIEW_BASEURL" >> "$GITHUB_ENV"
         env:
           JEKYLL_ENV: production
+          VAR_STYLE: ${{ vars.SITE_STYLE }}
+          VAR_BACKGROUND: ${{ vars.SITE_BACKGROUND }}
 
       - name: Check links and HTML
         if: github.event.action != 'closed'

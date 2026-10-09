@@ -4,4 +4,10 @@
   <select id="style-select">
     {% for st in site.data.styles %}<option value="{{ st.name }}">{{ st.label }}</option>{% endfor %}
   </select>
+  <label for="bg-select">Background</label>
+  <select id="bg-select">
+    <option value="polyominoes">Polyominoes</option>
+    <option value="edge-ideals">Edge ideals</option>
+    <option value="none">None</option>
+  </select>
 </div>

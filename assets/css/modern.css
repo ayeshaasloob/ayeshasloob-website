@@ -28,7 +28,7 @@
   --gutter: 1rem;
   --radius: 4px;
   --shadow: 0 1px 2px rgb(16 24 40 / .04), 0 4px 16px rgb(16 24 40 / .06);
-  --poly-opacity: .11;
+  --bg-opacity: .11;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -49,7 +49,7 @@
     --color-banner-bg: #3a2f10;
     --color-banner-text: #f5dc9a;
     --shadow: none;
-    --poly-opacity: .16;
+    --bg-opacity: .16;
   }
 }
 
@@ -93,12 +93,14 @@ img { max-width: 100%; height: auto; display: block; }
 .preview-banner { background: var(--color-banner-bg); color: var(--color-banner-text); text-align: center; padding: .4rem var(--gutter); font-weight: 600; font-size: .875rem; }
 
 
-/* Animated polyomino background (assets/js/polyomino-bg.js).
-   color = piece outline, --poly-accent = filled cell, opacity = overall strength. */
-.poly-bg {
+/* Animated background (assets/js/background.js).
+   color = lines, --bg-accent = highlights, opacity = overall strength. */
+.bg-anim {
   position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; display: block;
-  color: var(--color-link); --poly-accent: var(--color-accent); opacity: var(--poly-opacity);
+  color: var(--color-link); --bg-accent: var(--color-accent); opacity: var(--bg-opacity);
 }
+/* The graph has thinner marks and text, so it needs a little more strength to read. */
+.bg-anim[data-scene="edge-ideals"] { opacity: calc(var(--bg-opacity) * 2); }
 
 /* ==========================================================================
    Header: brand + primary nav + search, secondary nav on a second row
@@ -190,6 +192,12 @@ ul.columns { columns: 2 18rem; padding-left: 1.2rem; }
 .hero-art .cells-accent rect { fill: var(--color-accent); stroke: rgb(255 255 255 / .55); }
 .hero-caption { position: absolute; left: 2rem; bottom: 1.75rem; right: 2rem; display: flex; flex-direction: column; gap: .35rem; }
 .hero-caption .eyebrow { color: rgb(255 255 255 / .75) !important; margin: 0 !important; }
+
+/* Portrait on the left of the banner (when a photo is set) */
+.hero.has-photo { position: relative; }
+.hero .hero-photo { position: absolute; aspect-ratio: auto; top: 0; left: 0; height: 100%; width: 40%; object-fit: cover; object-position: center top;  }
+.hero.has-photo .hero-caption { left: calc(40% + 1.5rem); }
+@media (max-width: 40rem) { .hero.has-photo .hero-caption { display: none; } }
 
 .home-title { font-size: clamp(2rem, 5vw, 2.9rem); }
 .home-lead { font-size: clamp(1.15rem, 2.4vw, 1.4rem); line-height: 1.45; color: var(--color-muted); margin: 0 0 .5rem; max-width: 40rem; }

@@ -18,6 +18,20 @@
       setStyle(select.value);
       try { localStorage.setItem('style', select.value); } catch (e) { /* storage unavailable */ }
     });
+
+    // Background scene. Runs before background.js starts, so a saved choice is applied on load.
+    var bgSelect = document.getElementById('bg-select');
+    var canvas = document.querySelector('.bg-anim');
+    if (bgSelect && canvas) {
+      var savedBg = null;
+      try { savedBg = localStorage.getItem('bg'); } catch (e) { /* storage unavailable */ }
+      if (savedBg) canvas.dataset.scene = savedBg;
+      bgSelect.value = canvas.dataset.scene;
+      bgSelect.addEventListener('change', function () {
+        try { localStorage.setItem('bg', bgSelect.value); } catch (e) { /* storage unavailable */ }
+        document.dispatchEvent(new CustomEvent('bg-scene-change', { detail: bgSelect.value }));
+      });
+    }
   }
 
   // Mobile menu

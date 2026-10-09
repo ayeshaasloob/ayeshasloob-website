@@ -1,11 +1,38 @@
 # Builds the site from main and publishes it to the root of the gh-pages branch.
 # PR previews live under pr-preview/ on the same branch and are left untouched.
+#
+# Which style and background are published, first match wins:
+#   1. the choice made when running this workflow by hand (Actions > Deploy site > Run workflow)
+#   2. the repository variables SITE_STYLE and SITE_BACKGROUND
+#      (Settings > Secrets and variables > Actions > Variables)
+#   3. `style:` and `background:` in _config.yml
 name: Deploy site
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      style:
+        description: Style to publish
+        type: choice
+        default: from settings
+        options:
+          - from settings
+          - modern
+          - classic
+          - grid
+          - journal
+          - tiling
+      background:
+        description: Background animation (Modern and Classic only)
+        type: choice
+        default: from settings
+        options:
+          - from settings
+          - polyominoes
+          - edge-ideals
+          - none
 
 permissions:
   contents: write
@@ -25,8 +52,42 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
 
+      - name: Choose style
+        env:
+          INPUT_STYLE: ${{ inputs.style }}
+          VAR_STYLE: ${{ vars.SITE_STYLE }}
+        run: |
+          STYLE="$INPUT_STYLE"
+          if [ -z "$STYLE" ] || [ "$STYLE" = "from settings" ]; then STYLE="$VAR_STYLE"; fi
+          if [ -z "$STYLE" ]; then STYLE=$(ruby -ryaml -e 'puts YAML.load_file("_config.yml")["style"]'); fi
+          VALID=$(ruby -ryaml -e 'puts YAML.load_file("_data/styles.yml").map { |s| s["name"] }.join(" ")')
+          case " $VALID " in
+            *" $STYLE "*) ;;
+            *) echo "::error::Unknown style '$STYLE'. Use one of: $VALID"; exit 1 ;;
+          esac
+          printf 'style: %s\n' "$STYLE" > _config.style.yml
+          echo "Publishing with style: $STYLE"
+          echo "### Published style: \`$STYLE\`" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Choose background
+        env:
+          INPUT_BACKGROUND: ${{ inputs.background }}
+          VAR_BACKGROUND: ${{ vars.SITE_BACKGROUND }}
+        run: |
+          BG="$INPUT_BACKGROUND"
+          if [ -z "$BG" ] || [ "$BG" = "from settings" ]; then BG="$VAR_BACKGROUND"; fi
+          if [ -z "$BG" ]; then BG=$(ruby -ryaml -e 'puts YAML.load_file("_config.yml")["background"] || "polyominoes"'); fi
+          VALID="polyominoes edge-ideals none"
+          case " $VALID " in
+            *" $BG "*) ;;
+            *) echo "::error::Unknown background '$BG'. Use one of: $VALID"; exit 1 ;;
+          esac
+          printf 'background: %s\n' "$BG" >> _config.style.yml
+          echo "Publishing with background: $BG"
+          echo "### Published background: \`$BG\`" >> "$GITHUB_STEP_SUMMARY"
+
       - name: Build
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --config _config.yml,_config.style.yml
         env:
           JEKYLL_ENV: production
 

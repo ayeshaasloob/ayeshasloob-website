@@ -10,6 +10,10 @@ baseurl: "/ayeshasloob-website"
 # Visual style: modern, classic, grid, journal or tiling (see _data/styles.yml).
 style: modern
 
+# Animated background, for styles that show one (Modern, Classic):
+#   polyominoes, edge-ideals or none
+background: polyominoes
+
 # Set to true by the PR preview build: shows a banner and stops search engines indexing.
 preview: false
 
@@ -35,9 +39,13 @@ exclude:
   - vendor
   - .github
   - scripts
+  # Full-size camera originals: keep out of the site (the web copy is assets/img/profile.jpg)
+  - assets/img/ALI03424.JPG
 
 defaults:
   - scope:
       path: ""
     values:
       layout: page
+      # Image used when a page is shared on social media or messaging apps.
+      image: /assets/img/profile.jpg

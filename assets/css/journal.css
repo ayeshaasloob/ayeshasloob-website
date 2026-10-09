@@ -37,7 +37,7 @@
 }
 
 /* ---------- Base ---------- */
-.poly-bg { display: none; }
+.bg-anim { display: none; }
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--page); color: var(--text); font-family: var(--font-text); font-size: 1.125rem; line-height: 1.55; font-kerning: normal; }
@@ -108,9 +108,10 @@ ul.columns { columns: 2 16rem; padding-left: 1.2rem; }
 
 /* ---------- Home: title block, numbered sections, remarks ---------- */
 .home-grid { display: block; }
-.hero { margin: 0 auto 1.5rem; max-width: 12rem; }
+.hero { margin: 0 auto 1.75rem; max-width: 11rem; }
 .hero-art { display: none; }
-.hero:not(:has(img)) { display: none; }
+.hero:not(.has-photo) { display: none; }
+.hero-photo { width: 100%; height: auto; }
 
 .home-title { text-align: center; font-size: clamp(1.9rem, 4.5vw, 2.4rem); }
 .home-lead { text-align: center; font-style: italic; margin: 0 0 .25rem; }

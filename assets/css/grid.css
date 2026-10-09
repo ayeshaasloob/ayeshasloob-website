@@ -45,7 +45,7 @@
 }
 
 /* ---------- Base ---------- */
-.poly-bg { display: none; }
+.bg-anim { display: none; }
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
@@ -159,6 +159,12 @@ ul.columns { columns: 2 18rem; padding-left: 1.2rem; }
 .hero-art .cells-accent rect { fill: var(--mark); stroke: var(--ink); }
 .hero-caption { position: absolute; left: var(--cell); bottom: var(--cell); right: var(--cell); }
 .hero-caption .eyebrow { background: var(--surface); border: 1px solid var(--ink); padding: .3rem .55rem; display: inline-block; margin: 0 !important; color: var(--ink) !important; }
+
+/* Portrait on the left of the banner (when a photo is set) */
+.hero.has-photo { position: relative; }
+.hero .hero-photo { position: absolute; aspect-ratio: auto; top: 0; left: 0; height: 100%; width: 40%; object-fit: cover; object-position: center top; border-right: 1px solid var(--ink); }
+.hero.has-photo .hero-caption { left: calc(40% + 1.5rem); }
+@media (max-width: 40rem) { .hero.has-photo .hero-caption { display: none; } }
 @media (max-width: 40rem) { .hero-caption { display: none; } }
 
 .home-title { font-size: clamp(2.2rem, 5.5vw, 3.25rem); }

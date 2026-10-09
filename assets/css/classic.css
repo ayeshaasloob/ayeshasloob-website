@@ -21,7 +21,7 @@
   --max-width: 54rem;
   --gutter: 1rem;
   --radius: 8px;
-  --poly-opacity: .10;
+  --bg-opacity: .10;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,7 +36,7 @@
     --color-accent: #f0a088;
     --color-banner-bg: #3a2f10;
     --color-banner-text: #f5dc9a;
-    --poly-opacity: .14;
+    --bg-opacity: .14;
   }
 }
 
@@ -90,12 +90,14 @@ img { max-width: 100%; height: auto; }
 }
 
 
-/* Animated polyomino background (assets/js/polyomino-bg.js).
-   color = piece outline, --poly-accent = filled cell, opacity = overall strength. */
-.poly-bg {
+/* Animated background (assets/js/background.js).
+   color = lines, --bg-accent = highlights, opacity = overall strength. */
+.bg-anim {
   position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; display: block;
-  color: var(--color-primary); --poly-accent: var(--color-accent); opacity: var(--poly-opacity);
+  color: var(--color-primary); --bg-accent: var(--color-accent); opacity: var(--bg-opacity);
 }
+/* The graph has thinner marks and text, so it needs a little more strength to read. */
+.bg-anim[data-scene="edge-ideals"] { opacity: calc(var(--bg-opacity) * 2); }
 
 /* ==========================================================================
    Header and navigation
@@ -151,8 +153,9 @@ ul.columns { columns: 2 18rem; padding-left: 1.2rem; }
 .home-grid { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 2.5rem; align-items: start; }
 @media (max-width: 52rem) { .home-grid { grid-template-columns: 1fr; } }
 .hero { margin: 0 0 1.5rem; }
-.hero img { border-radius: var(--radius); }
 .hero-art { display: none; }
+.hero:not(.has-photo) { display: none; }
+.hero-photo { width: 168px; height: 168px; border-radius: 50%; object-fit: cover; object-position: center 18%; border: 3px solid var(--color-surface); box-shadow: 0 0 0 1px var(--color-border); }
 .home-lead { font-size: 1.15rem; margin: 0 0 .25rem; }
 .home-main .prose { margin-top: 1.5rem; }
 
