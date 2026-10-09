@@ -1,0 +1,59 @@
+{% assign pub = include.pub %}
+{% assign first_last = pub.authors[0] | split: ' ' | last | downcase %}
+{% assign first_word = pub.title | split: ' ' | first | downcase | remove: ':' | remove: ',' %}
+{% if pub.year %}{% assign bib_year = pub.year %}{% elsif pub.arxiv %}{% assign bib_year = pub.arxiv | slice: 0, 2 | prepend: '20' %}{% else %}{% assign bib_year = '' %}{% endif %}
+{% assign bib_key = first_last | append: bib_year | append: first_word | slugify | remove: '-' %}
+<li class="pub" data-status="{% if pub.status == 'published' %}published{% else %}preprint{% endif %}">
+  <p class="pub-authors">
+    {%- for a in pub.authors -%}
+      {%- if a == site.data.profile.name -%}<strong>{{ a }}</strong>{%- else -%}{{ a }}{%- endif -%}
+      {%- unless forloop.last -%}, {% endunless -%}
+    {%- endfor -%}
+  </p>
+  <p class="pub-title">{{ pub.title }}</p>
+  <p class="pub-venue">
+    {%- if pub.status == 'published' -%}
+      <em>{{ pub.journal }}</em>
+      {%- if pub.volume %}, Vol. {{ pub.volume }}{% if pub.issue %} ({{ pub.issue }}){% endif %}{% endif -%}
+      {%- if pub.pages %}, pp. {{ pub.pages }}{% endif -%}
+      {%- if pub.article %}, Article {{ pub.article }}{% endif -%}
+      {%- if pub.year %}, {{ pub.year }}{% endif -%}
+      {%- if pub.note %}. {{ pub.note }}{% endif -%}
+    {%- elsif pub.status == 'submitted' -%}
+      Submitted
+    {%- else -%}
+      Preprint
+    {%- endif -%}
+  </p>
+  <p class="pub-links">
+    {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}">DOI</a>{% endif %}
+    {% if pub.arxiv %}<a href="https://arxiv.org/abs/{{ pub.arxiv }}">arXiv:{{ pub.arxiv }}</a>{% endif %}
+    <button type="button" class="link-button bib-toggle" aria-expanded="false">BibTeX</button>
+  </p>
+  <div class="bibtex" hidden>
+<pre><code>@{% if pub.status == 'published' %}article{% else %}misc{% endif %}{ {{- bib_key -}},
+  author  = { {{- pub.authors | join: ' and ' -}} },
+  title   = { {{- pub.title -}} },
+{%- if pub.journal %}
+  journal = { {{- pub.journal -}} },{% endif %}
+{%- if pub.volume %}
+  volume  = { {{- pub.volume -}} },{% endif %}
+{%- if pub.issue %}
+  number  = { {{- pub.issue -}} },{% endif %}
+{%- if pub.pages %}
+  pages   = { {{- pub.pages | replace: '–', '--' -}} },{% endif %}
+{%- if pub.article %}
+  eid     = { {{- pub.article -}} },{% endif %}
+{%- if bib_year != '' %}
+  year    = { {{- bib_year -}} },{% endif %}
+{%- if pub.doi %}
+  doi     = { {{- pub.doi -}} },{% endif %}
+{%- if pub.arxiv %}
+  eprint  = { {{- pub.arxiv -}} },
+  archivePrefix = {arXiv},{% endif %}
+{%- if pub.status == 'submitted' %}
+  note    = {Submitted},{% endif %}
+}</code></pre>
+    <button type="button" class="copy-button">Copy</button>
+  </div>
+</li>

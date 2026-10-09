@@ -1,0 +1,13 @@
+{% assign p = site.data.profile %}
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <p><strong>{{ p.name }}</strong><br>{{ p.address }}</p>
+      <p>{% include email.html email=p.email %}</p>
+    </div>
+    <div>
+      {% include profile-links.html %}
+      <p class="muted small">Last updated {{ site.time | date: "%-d %B %Y" }}</p>
+    </div>
+  </div>
+</footer>

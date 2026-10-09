@@ -1,0 +1,44 @@
+# Builds the site from main and publishes it to the root of the gh-pages branch.
+# PR previews live under pr-preview/ on the same branch and are left untouched.
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-gh-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Build
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      - name: Check links and HTML
+        run: |
+          BASEURL=$(ruby -ryaml -e 'puts YAML.load_file("_config.yml")["baseurl"]')
+          bundle exec htmlproofer ./_site --disable-external --no-enforce-https --swap-urls "^${BASEURL}:"
+
+      - name: Publish to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: _site
+          branch: gh-pages
+          clean-exclude: pr-preview/
+          force: false

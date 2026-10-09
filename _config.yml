@@ -1,0 +1,40 @@
+# Site settings
+title: Ayesha Asloob Qureshi
+description: >-
+  Associate Professor of Mathematics at Sabancı Üniversitesi, Istanbul.
+  Research in commutative algebra, combinatorics and algebraic statistics.
+lang: en
+url: "https://ayeshaasloob.github.io"
+baseurl: "/ayeshasloob-website"
+
+# Set to true by the PR preview build: shows a banner and stops search engines indexing.
+preview: false
+
+# Build
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+permalink: pretty
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Published as-is so GitHub Pages does not re-run Jekyll on the built output.
+include:
+  - .nojekyll
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .github
+  - scripts
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page

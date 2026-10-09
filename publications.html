@@ -1,0 +1,39 @@
+---
+title: Publications
+permalink: /publications/
+description: Journal articles and preprints by Ayesha Asloob Qureshi in commutative algebra and combinatorics.
+---
+{% assign published = site.data.publications | where: "status", "published" %}
+{% assign unpublished = site.data.publications | where_exp: "p", "p.status != 'published'" %}
+
+<p class="lead">{{ published.size }} published papers and {{ unpublished.size }} preprints or submitted papers. Full citation data is on <a href="https://scholar.google.com/citations?user=Dr4rEFkAAAAJ&hl=en">Google Scholar</a> and <a href="https://orcid.org/0000-0002-3400-2069">ORCID</a>.</p>
+
+<div class="pub-controls" hidden>
+  <div class="filter" role="group" aria-label="Filter publications">
+    <button type="button" data-filter="all" aria-pressed="true">All</button>
+    <button type="button" data-filter="published" aria-pressed="false">Published</button>
+    <button type="button" data-filter="preprint" aria-pressed="false">Preprints</button>
+  </div>
+  <label class="search">
+    <span class="visually-hidden">Search publications</span>
+    <input type="search" id="pub-search" placeholder="Search title, co-author or journal">
+  </label>
+</div>
+<p id="pub-count" class="muted small" aria-live="polite"></p>
+
+<section class="pub-group" aria-labelledby="h-preprints">
+  <h2 id="h-preprints">Preprints and submitted papers</h2>
+  <ol class="pub-list">
+    {% for pub in unpublished %}{% include publication.html pub=pub %}{% endfor %}
+  </ol>
+</section>
+
+{% assign by_year = published | group_by: "year" %}
+{% for g in by_year %}
+<section class="pub-group" aria-labelledby="h-{{ g.name }}">
+  <h2 id="h-{{ g.name }}">{{ g.name }}</h2>
+  <ol class="pub-list">
+    {% for pub in g.items %}{% include publication.html pub=pub %}{% endfor %}
+  </ol>
+</section>
+{% endfor %}

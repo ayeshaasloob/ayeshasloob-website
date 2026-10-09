@@ -1,0 +1,38 @@
+---
+layout: default
+---
+{% assign p = site.data.profile %}
+<section class="profile">
+  <div class="profile-photo">
+    {% if p.photo and p.photo != "" %}
+      <img src="{{ p.photo | relative_url }}" alt="Portrait of {{ p.name }}" width="180" height="180">
+    {% else %}
+      <span class="initials" aria-hidden="true">AQ</span>
+    {% endif %}
+  </div>
+  <div class="profile-text">
+    <h1>{{ p.name }}</h1>
+    <p class="role">{{ p.role }}<br><a href="{{ p.affiliation_url }}">{{ p.affiliation }}</a>, {{ p.location }}</p>
+    {% if p.official_name %}<p class="muted small">Official name: {{ p.official_name }}</p>{% endif %}
+    <p class="contact-line">{% include email.html email=p.email %}</p>
+    {% include profile-links.html %}
+  </div>
+</section>
+
+<div class="prose">
+  {{ content }}
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ p.name | jsonify }},
+  "alternateName": {{ p.official_name | jsonify }},
+  "jobTitle": {{ p.role | jsonify }},
+  "worksFor": { "@type": "CollegeOrUniversity", "name": {{ p.affiliation | jsonify }}, "url": {{ p.affiliation_url | jsonify }} },
+  "url": {{ site.url | append: site.baseurl | append: '/' | jsonify }},
+  "sameAs": [{% for l in p.links %}{{ l.url | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %}],
+  "knowsAbout": ["Commutative algebra", "Combinatorics", "Algebraic statistics", "Gröbner bases"]
+}
+</script>

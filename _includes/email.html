@@ -1,0 +1,4 @@
+{% comment %}
+  Email link that is assembled in the browser, so the address is not in the HTML as plain text.
+  Usage: {% include email.html email=site.data.profile.email %}
+{% endcomment %}<span class="email" data-u="{{ include.email.user | split: '' | reverse | join: '' }}" data-d="{{ include.email.domain | split: '' | reverse | join: '' }}">{{ include.email.user }} [at] {{ include.email.domain | replace: '.', ' [dot] ' }}</span>

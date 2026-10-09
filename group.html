@@ -1,0 +1,24 @@
+---
+title: Research group
+permalink: /group/
+description: Postdocs, PhD and MS students, and visiting scientists in Ayesha Asloob Qureshi's research group at Sabancı Üniversitesi.
+---
+{% assign g = site.data.group %}
+{% assign sections = "postdocs|Postdocs,phd|PhD students,ms|MS students,visitors|Visiting scientists" | split: "," %}
+{% for s in sections %}
+  {% assign key = s | split: "|" | first %}
+  {% assign label = s | split: "|" | last %}
+  <h2>{{ label }}</h2>
+  <ul class="people">
+    {% for person in g[key] %}
+    <li>
+      <span class="person-name">{{ person.name }}</span>
+      {% if key == "phd" or key == "ms" %}
+        <span class="badge">{% if person.year %}{{ person.year }}{% else %}Ongoing{% endif %}</span>
+      {% endif %}
+      <span class="muted">{{ person.institution }}{% if person.note %}, {{ person.note }}{% endif %}</span>
+    </li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+<p>Interested in joining? See <a href="{{ '/positions/' | relative_url }}">open positions</a>.</p>

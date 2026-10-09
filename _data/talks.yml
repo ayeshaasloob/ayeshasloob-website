@@ -1,0 +1,136 @@
+# Invited talks at workshops, schools and conferences, newest first.
+# "year" is used for grouping; "date" is shown as written.
+- year: 2025
+  date: November 28
+  event: Combinatorial Commutative Algebra in Canada (CCAC) Seminar series
+  place: Online (Canada)
+  online: true
+- year: 2025
+  date: September 8
+  event: One Day Workshop on Commutative Algebra and Related Fields
+  place: Ovidius University of Constanța, Romania
+- year: 2025
+  date: August 5–6
+  event: Combinatorics and Geometry in Istanbul
+  place: Bahçeşehir University, Istanbul
+- year: 2025
+  date: July 21–25
+  event: International Conference on Commutative Algebra to the Memory of Jürgen Herzog
+  place: VIASM, Hanoi, Vietnam
+- year: 2025
+  date: April 17–23
+  event: "AESIM school on Combinatorial Commutative Algebra: Theory, Computation, and Applications"
+  place: COMSATS, Lahore, Pakistan
+- year: 2024
+  date: September 8–13
+  event: Research School on Topology and Algebra of Singularities and their Applications
+  place: Ovidius University of Constanța, Romania
+- year: 2023
+  date: June 28–20 # TODO confirm dates with Ayesha (as written on the previous site)
+  event: Genç Matematikçiler Toplantısı, Turkish Mathematical Society
+  place: Nesin Mathematics Village, Şirince, Türkiye
+- year: 2023
+  date: May 1–12
+  event: Workshop on commutative algebra and algebraic geometry in prime characteristic
+  place: International Centre for Theoretical Physics, Trieste, Italy
+- year: 2023
+  date: March 19–25
+  event: CoCoA 2023 International School on Computational Commutative Algebra
+  place: Huế, Vietnam
+- year: 2021
+  date: August 30 – September 12
+  event: Matematik Araştırma Programı (MAP)
+  event_url: http://www.imbm.org.tr/
+  place: İstanbul Matematiksel Bilimler Merkezi, Boğaziçi Üniversitesi, Istanbul, Türkiye
+- year: 2021
+  date: August 5
+  event: Commutative Algebra Webinars, Commutative Algebra Group of IPM, Iran
+  place: Online
+  online: true
+- year: 2021
+  date: June 25–26
+  event: The first Asian CWM ambassadors meeting, organised by CWM-IMU
+  place: Online
+  online: true
+- year: 2021
+  date: May 1–2
+  event: 9. Bahar Matematik Buluşması
+  place: Online
+  online: true
+- year: 2020
+  date: September 1
+  event: One day joyful workshop on Commutative Algebra and related fields
+  place: Online, organised by Ovidius University, Romania
+  online: true
+- year: 2019
+  date: September 28
+  event: One day joyful workshop on Commutative Algebra and related fields
+  place: Ovidius University, Romania
+- year: 2019
+  date: July 29 – August 1
+  event: The 8th SEAMS-UGM International Conference on Mathematics and Its Applications
+  place: Yogyakarta, Indonesia
+- year: 2019 # TODO confirm year with Ayesha (not stated on the previous site)
+  date: July 30
+  event: South East Asian Women Mathematicians Meeting (SEAWM2)
+  place: Yogyakarta, Indonesia
+- year: 2018
+  date: August 26–20 # TODO confirm dates with Ayesha (as written on the previous site)
+  event: The 26th National School on Algebra
+  place: Constanța, Romania
+- year: 2018
+  date: May 16–20
+  event: Antalya Algebra Days XX
+  place: Nesin Matematik Köyü, Şirince, Türkiye
+- year: 2017
+  date: December 26–29
+  event: "First winter workshop on advanced topics in Mathematics: Commutative Algebra and Banach space theory"
+  place: Abdus Salam School of Mathematical Sciences, Lahore, Pakistan
+- year: 2017
+  date: August 15–19
+  event: Workshop on contemporary topics in Analysis, Algebra and Geometry
+  place: Abdus Salam School of Mathematical Sciences, Lahore, Pakistan
+- year: 2017
+  date: March 4
+  event: Ankara-İstanbul Algebraic Geometry & Number Theory meetings
+  place: Istanbul Center for Mathematical Sciences (IMBM), Istanbul
+- year: 2016
+  date: December 9–10
+  event: CASM Workshop on Algebra and Applications
+  place: Lahore University of Management Sciences (LUMS), Lahore, Pakistan
+- year: 2016
+  date: November 2–3
+  event: Second International workshop on modern aspects of algebra and graph theory
+  place: COMSATS Institute of Information Technology, Lahore, Pakistan
+- year: 2016
+  date: August 17–24
+  event: Multigraded algebra and applications, The 24th National School on Algebra
+  place: Moieciu de Sus, Romania
+- year: 2015
+  date: November 18–22
+  event: The 37th Japan Symposium on Commutative Algebra
+  place: Okayama University, Japan
+- year: 2015
+  date: August 26–29
+  event: Syzygies in Algebra
+  place: Busan, Korea
+- year: 2015
+  date: August 10–11
+  event: Mini seminar on Combinatorics and Commutative Algebra
+  place: Osaka University, Japan
+- year: 2015
+  date: July 1–10
+  event: "Current trends on Gröbner bases: The 50th anniversary of Gröbner bases"
+  place: Osaka, Japan
+- year: 2014
+  date: September 1–5
+  event: The 22nd National School on Algebra
+  place: Bucharest, Romania
+- year: 2014
+  date: April 28–30
+  event: Seminar series on homological properties of powers of ideals
+  place: ICTP, Trieste, Italy
+- year: 2014
+  date: March 28–29
+  event: Workshop on recent advances in commutative algebra with algebraic geometry
+  place: Lahore University of Management Sciences (LUMS), Lahore, Pakistan

@@ -1,0 +1,5 @@
+<ul class="profile-links">
+  {% for l in site.data.profile.links %}
+  <li><a href="{{ l.url }}" rel="me noopener">{{ l.label }}</a></li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,67 @@
+# Year is the completion year. Leave it out for ongoing.
+postdocs:
+  - name: Francesco Navarra
+    institution: Sabancı University
+  - name: Marie Amalore Nambi
+    institution: Sabancı University
+  - name: Dharm Veer
+    institution: Sabancı University
+
+phd:
+  - name: Erdem Şafak Öztürk
+    institution: Sabancı University
+  - name: Elshani Kamberi
+    year: 2025
+    institution: Sabancı University
+  - name: Aslı Tuğcuoğlu Musapaşaoğlu
+    year: 2024
+    institution: Sabancı University
+  - name: Rizwan Jahangir
+    year: 2024
+    institution: Sabancı University
+  - name: Yoshua Yonatan
+    year: 2023
+    institution: Institut Teknologi Bandung, Indonesia
+    note: co-advisor
+
+ms:
+  - name: Erdem Şafak Öztürk
+    year: 2024
+    institution: Sabancı University
+  - name: Büşra Atar
+    year: 2021
+    institution: Sabancı University
+  - name: Elshani Kamberi
+    year: 2021
+    institution: Sabancı University
+  - name: Aslı Tuğcuoğlu Musapaşaoğlu
+    year: 2018
+    institution: Sabancı University
+
+visitors:
+  - name: Seyed Amin Seyed Fakhari
+    institution: Universidad de Los Andes, Colombia
+  - name: Naoki Terai
+    institution: Okayama University, Japan
+  - name: Takayuki Hibi
+    institution: Osaka University, Japan
+  - name: Sara Saeedi Madani
+    institution: Amirkabir University of Technology and IPM, Iran
+  - name: Giancarlo Rinaldo
+    institution: University of Messina, Italy
+  - name: Jürgen Herzog
+    institution: Universität Duisburg-Essen, Germany
+  - name: Somayeh Moradi
+    institution: Ilam University, Iran
+  - name: Massomeh Rahimbeigi
+    institution: University of Kurdistan, Sanandaj, Iran
+  - name: Dharm Veer
+    institution: Chennai Mathematical Institute, India and Dalhousie University, Canada
+  - name: Francesco Navarra
+    institution: University of Messina, Italy
+  - name: Francesco Romeo
+    institution: Università degli Studi di Trento, Italy
+  - name: Siti Humaira
+    institution: Institut Teknologi Bandung, Indonesia
+  - name: Yoshua Yonatan
+    institution: Institut Teknologi Bandung, Indonesia

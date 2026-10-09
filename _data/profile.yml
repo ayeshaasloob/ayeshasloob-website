@@ -1,0 +1,29 @@
+name: Ayesha Asloob Qureshi
+official_name: Ayesha Asloob Topaçoğlu
+role: Associate Professor of Mathematics
+affiliation: Sabancı Üniversitesi
+affiliation_url: https://www.sabanciuniv.edu/en
+location: Istanbul, Türkiye
+address: Sabancı Üniversitesi, Orta Mahalle, 34956, Istanbul, Türkiye
+
+# Add a photo at assets/img/profile.jpg and set this to "/assets/img/profile.jpg".
+# Leave empty to show initials instead.
+photo: ""
+
+# Shown on every page. Rendered with a small script so the address is not in the HTML as plain text.
+email:
+  user: ayesha.asloob
+  domain: sabanciuniv.edu
+
+# Also listed on the previous site. Uncomment any that should still be shown.
+# other_emails:
+#   - { user: aqureshi, domain: sabanciuniv.edu }
+#   - { user: ayesqi, domain: gmail.com }
+
+links:
+  - label: ORCID
+    url: https://orcid.org/0000-0002-3400-2069
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=Dr4rEFkAAAAJ&hl=en
+  - label: Web of Science
+    url: https://www.webofscience.com/wos/author/record/AAF-5995-2020

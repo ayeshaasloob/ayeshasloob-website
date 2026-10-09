@@ -1,0 +1,7 @@
+---
+layout: null
+permalink: /robots.txt
+---
+User-agent: *
+{% if site.preview %}Disallow: /{% else %}Allow: /
+Sitemap: {{ '/sitemap.xml' | absolute_url }}{% endif %}

@@ -1,0 +1,34 @@
+---
+title: Grants, awards and fellowships
+permalink: /grants/
+description: Research grants, awards and fellowships held by Ayesha Asloob Qureshi.
+---
+<h2>Grants and projects</h2>
+<ul class="entries">
+  {% for gr in site.data.grants.grants %}
+  <li>
+    <span class="entry-date">{{ gr.years }}</span>
+    <div>
+      <p class="entry-title">{{ gr.title }}</p>
+      <p class="muted">
+        {% if gr.programme_url %}<a href="{{ gr.programme_url }}">{{ gr.programme }}</a>{% else %}{{ gr.programme }}{% endif %}
+        {% if gr.role %}<br>{{ gr.role }}{% endif %}
+        {% if gr.note %}<br><em>{{ gr.note }}</em>{% endif %}
+      </p>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+
+<h2>Awards and fellowships</h2>
+<ul class="entries">
+  {% for a in site.data.grants.awards %}
+  <li>
+    <span class="entry-date">{{ a.year }}</span>
+    <div>
+      <p class="entry-title">{{ a.title }}</p>
+      <p class="muted">{{ a.body }}{% if a.note %}. <em>{{ a.note }}</em>{% endif %}</p>
+    </div>
+  </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,21 @@
+---
+title: Invited talks
+permalink: /talks/
+intro: Invited talks at conferences, schools and workshops.
+description: Invited talks by Ayesha Asloob Qureshi at conferences, schools and workshops.
+---
+{% assign by_year = site.data.talks | group_by: "year" %}
+{% for y in by_year %}
+<h2>{{ y.name }}</h2>
+<ul class="entries">
+  {% for t in y.items %}
+  <li>
+    <span class="entry-date">{{ t.date }}</span>
+    <div>
+      <p class="entry-title">{% if t.event_url %}<a href="{{ t.event_url }}">{{ t.event }}</a>{% else %}{{ t.event }}{% endif %}</p>
+      <p class="muted">{{ t.place }}</p>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% endfor %}
