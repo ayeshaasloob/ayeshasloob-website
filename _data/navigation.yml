@@ -2,10 +2,13 @@
 - title: Bio
   url: /
   group: primary
+- title: CV
+  url: /cv/
+  group: primary
 - title: Publications
   url: /publications/
   group: primary
-- title: Group
+- title: Research group
   url: /group/
   group: primary
 - title: Talks
@@ -17,12 +20,9 @@
 - title: Open positions
   url: /positions/
   group: secondary
-- title: Grants & awards
+- title: Grants & projects
   url: /grants/
   group: secondary
-- title: TÜBİTAK 1001
+- title: Active projects
   url: /tubitak-1001/
-  group: secondary
-- title: Outreach
-  url: /outreach/
   group: secondary

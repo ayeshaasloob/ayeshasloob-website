@@ -22,10 +22,11 @@ feature/my-change  ──PR──▶  main  ──▶  live site
 | To change | Edit |
 |---|---|
 | Name, role, email, profile links, photo | `_data/profile.yml` |
-| Bio, research interests, positions, education | `index.md` |
+| Bio and research interests | `index.md` |
+| Current and previous positions, education | `cv.md` |
 | Publications | `_data/publications.yml` |
 | Students, postdocs, visitors | `_data/group.yml` |
-| Grants and awards | `_data/grants.yml` |
+| Grants, projects, awards and fellowships | `_data/grants.yml` |
 | Invited talks | `_data/talks.yml` |
 | Open positions, teaching, outreach, TÜBİTAK project | `positions.md`, `teaching.md`, `outreach.md`, `tubitak-1001.md` |
 | Menu items | `_data/navigation.yml` |

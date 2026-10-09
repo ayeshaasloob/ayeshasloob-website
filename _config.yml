@@ -8,11 +8,11 @@ url: "https://ayeshaasloob.github.io"
 baseurl: "/ayeshasloob-website"
 
 # Visual style: modern, classic, grid, journal or tiling (see _data/styles.yml).
-style: modern
+style: classic
 
 # Animated background, for styles that show one (Modern, Classic):
 #   polyominoes, edge-ideals or none
-background: polyominoes
+background: none
 
 # Set to true by the PR preview build: shows a banner and stops search engines indexing.
 preview: false

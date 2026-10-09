@@ -12,11 +12,6 @@ description: University service, workshop organisation and refereeing by Ayesha 
 | 2017–2018 | Member, Research Awards Committee |
 | 2017–2018 | Graduate Coordinator |
 
-## Organising workshops
-
-- Member of the scientific committee of the *28th Iran Algebra Seminar*, 10–11 July 2024, University of Maragheh, Iran.
-- Spring 2017: co-organiser of the *Ankara-İstanbul Algebraic Geometry & Number Theory* meetings, Istanbul Center for Mathematical Sciences (IMBM), Istanbul.
-
 ## Refereeing
 
 I have refereed for:
