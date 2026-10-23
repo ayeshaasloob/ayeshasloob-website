@@ -1,0 +1,37 @@
+name: Sync publications from arXiv
+
+on:
+  schedule:
+    # Every Monday at 07:15 UTC (10:15 in Türkiye).
+    - cron: "15 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-arxiv
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add new arXiv papers
+        run: python3 scripts/sync_arxiv.py
+
+      - name: Open or update publications pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/sync-arxiv
+          delete-branch: true
+          commit-message: "Update publications from arXiv"
+          title: "Update publications from arXiv"
+          body: |
+            This automated update adds papers newly found under Ayesha Asloob Qureshi's name in arXiv.
+
+            Please check the author list and title, then merge this pull request to publish the changes.
+          add-paths: _data/publications.yml

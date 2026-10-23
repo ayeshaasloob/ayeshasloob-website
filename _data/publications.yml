@@ -7,6 +7,11 @@
 
 # ---------- Preprints and submitted ----------
 - status: preprint
+  authors: ["Mircea Cimpoeas", "Mehrdad Nasernejad", "Ayesha Asloob Qureshi"]
+  title: "On the Fluctuations of Associated Primes and Depths of Powers of Monomial Ideals"
+  arxiv: "2610.27916"
+
+- status: preprint
   authors: [Ayesha Asloob Qureshi, Dharm Veer]
   title: Polycubes and polycube ideals
   arxiv: "2610.12191"
@@ -51,13 +56,15 @@
   title: t-Young complexes and squarefree powers of t-path ideals
   arxiv: "2511.13477"
 
-- status: submitted
+- status: preprint
   authors: [Takayuki Hibi, Ayesha Asloob Qureshi, Sara Saeedi Madani]
   title: Prime and Cohen–Macaulay binomial ideals with linear resolutions
+  arxiv: "2607.22127"
 
-- status: submitted
+- status: preprint
   authors: [Takayuki Hibi, Ayesha Asloob Qureshi]
   title: Prime and Cohen–Macaulay ideals of 2-minors with linear resolution
+  arxiv: "2609.23712"
 
 # ---------- Published ----------
 - status: published

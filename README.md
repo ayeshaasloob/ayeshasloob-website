@@ -55,6 +55,12 @@ Add an entry to `_data/publications.yml`. The publications page, the year groups
 
 When a preprint is published, change `status` to `published` and add the journal details.
 
+New arXiv preprints are also checked automatically every Monday. The
+`Sync publications from arXiv` workflow adds papers it has not seen before and opens a pull
+request for review. It never overwrites journal details; if a submitted paper appears on arXiv,
+it changes that entry to a linked preprint.
+You can run the check immediately from **Actions → Sync publications from arXiv → Run workflow**.
+
 ### Adding a photo
 
 Put the image at `assets/img/profile.jpg` (square, about 400×400 px) and set `photo: "/assets/img/profile.jpg"` in `_data/profile.yml`.
@@ -125,7 +131,8 @@ bundle exec htmlproofer ./_site --disable-external --no-enforce-https --swap-url
 
 1. **Pages:** Settings → Pages → Source: *Deploy from a branch*, branch `gh-pages`, folder `/ (root)`.
    The `gh-pages` branch is created by the first workflow run.
-2. **Actions permissions:** Settings → Actions → General → Workflow permissions: *Read and write permissions*.
+2. **Actions permissions:** Settings → Actions → General → Workflow permissions: *Read and write permissions*,
+   and enable *Allow GitHub Actions to create and approve pull requests*.
 3. **Protect `main`:** Settings → Branches (or Rules) → require a pull request and the *PR preview* check before merging.
 
 Notes:
