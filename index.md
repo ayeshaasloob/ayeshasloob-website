@@ -2,7 +2,7 @@
 layout: home
 title: Bio
 permalink: /
-description: Ayesha Asloob Qureshi, Associate Professor of Mathematics at Sabancı Üniversitesi, Istanbul. Research in commutative algebra, combinatorics and algebraic statistics.
+description: Ayesha Asloob Qureshi, Faculty Member in the Faculty of Engineering and Natural Sciences at Sabancı Üniversitesi, Istanbul. Research in commutative algebra, combinatorics and algebraic statistics.
 ---
 
 ## Research interests
