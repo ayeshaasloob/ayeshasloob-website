@@ -7,6 +7,11 @@
 
 # ---------- Preprints and submitted ----------
 - status: preprint
+  authors: ["Takayuki Hibi", "Francesco Navarra", "Ayesha Asloob Qureshi"]
+  title: "Rank identifications in join-meet ideals of thin distributive lattices"
+  arxiv: "2610.32647"
+
+- status: preprint
   authors: ["Mircea Cimpoeas", "Mehrdad Nasernejad", "Ayesha Asloob Qureshi"]
   title: "On the Fluctuations of Associated Primes and Depths of Powers of Monomial Ideals"
   arxiv: "2610.27916"
