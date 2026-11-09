@@ -8,6 +8,11 @@
 # ---------- Preprints and submitted ----------
 - status: preprint
   authors: ["Takayuki Hibi", "Francesco Navarra", "Ayesha Asloob Qureshi"]
+  title: "Ideals of 2-minors of nearly determinantal matrices"
+  arxiv: "2611.06571"
+
+- status: preprint
+  authors: ["Takayuki Hibi", "Francesco Navarra", "Ayesha Asloob Qureshi"]
   title: "Rank identifications in join-meet ideals of thin distributive lattices"
   arxiv: "2610.32647"
 
