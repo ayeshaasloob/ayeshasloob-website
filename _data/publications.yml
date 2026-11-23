@@ -7,6 +7,11 @@
 
 # ---------- Preprints and submitted ----------
 - status: preprint
+  authors: ["Marie Amalore Nambi", "Francesco Navarra", "Ayesha Asloob Qureshi", "Dharm Veer"]
+  title: "Squarefree powers of simplicial forests"
+  arxiv: "2611.27531"
+
+- status: preprint
   authors: ["Takayuki Hibi", "Francesco Navarra", "Ayesha Asloob Qureshi"]
   title: "Ideals of 2-minors of nearly determinantal matrices"
   arxiv: "2611.06571"
